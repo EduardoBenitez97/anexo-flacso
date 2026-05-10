@@ -173,6 +173,316 @@ window.Quarto = {
 <section id="matriz-de-pesos-topológicos-w_top" class="level2">
 <h2 class="anchored" data-anchor-id="matriz-de-pesos-topológicos-w_top">Matriz de Pesos Topológicos (<span class="math inline">\(W_{top}\)</span>)</h2>
 <p>Construimos un grafo <span class="math inline">\(G = (V, E)\)</span> donde las parroquias son nodos y las vías son aristas. El peso espacial <span class="math inline">\(w_{ij}\)</span> se define por la centralidad de intermediación: <span class="math display">\[C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}\]</span></p>
+<style>
+* { box-sizing: border-box; }
+.net-wrap { padding: 1rem 0 1.5rem; font-family: sans-serif; }
+.legend-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 12px; font-size: 12px; color: #666; }
+.leg { display: flex; align-items: center; gap: 6px; }
+.leg-circle { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.leg-line { width: 24px; height: 2px; flex-shrink: 0; }
+.net-canvas { width: 100%; border: 0.5px solid #ddd; border-radius: 12px; background: #f9f9f9; display: block; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; align-items: center; }
+.controls button { font-size: 12px; padding: 5px 12px; border-radius: 8px; border: 0.5px solid #ccc; background: #fff; color: #222; cursor: pointer; transition: background 0.15s; }
+.controls button:hover { background: #f0f0f0; }
+.controls button.active { background: #E6F1FB; border-color: #378ADD; color: #185FA5; }
+.info-panel { margin-top: 12px; border-radius: 10px; border: 0.5px solid #ddd; background: #fff; padding: 14px 16px; min-height: 80px; font-size: 13px; }
+.info-title { font-size: 14px; font-weight: 500; color: #222; margin: 0 0 4px; }
+.info-badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 99px; margin-bottom: 6px; font-weight: 500; }
+.badge-ext    { background: #FAEEDA; color: #633806; }
+.badge-noext  { background: #E1F5EE; color: #085041; }
+.badge-bridge { background: #EEEDFE; color: #3C3489; }
+.info-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+.info-metric { font-size: 12px; color: #666; }
+.info-metric span { font-weight: 500; color: #222; }
+.info-econ { margin-top: 8px; font-size: 12px; color: #555; line-height: 1.5; border-top: 0.5px solid #eee; padding-top: 8px; }
+.hint { font-size: 11px; color: #999; margin-top: 6px; }
+</style>
+
+<div class="net-wrap">
+  <div class="legend-row">
+    <div class="leg"><div class="leg-circle" style="background:#BA7517;border:2px solid #854F0B"></div>Zona extractiva</div>
+    <div class="leg"><div class="leg-circle" style="background:#1D9E75;border:2px solid #0F6E56"></div>Zona no extractiva</div>
+    <div class="leg"><div class="leg-circle" style="background:#7F77DD;border:2.5px solid #534AB7"></div>Nodo puente (alto C<sub>B</sub>)</div>
+    <div class="leg" style="margin-left:auto">
+      <div class="leg-line" style="background:#aaa"></div>&nbsp;Vía ordinaria&nbsp;&nbsp;
+      <div class="leg-line" style="background:#534AB7;height:3px"></div>&nbsp;Vía estratégica
+    </div>
+  </div>
+
+  <canvas class="net-canvas" id="netCanvas" height="420"></canvas>
+
+  <div class="controls">
+    <button id="btn-normal" class="active" onclick="setMode('normal')">Vista normal</button>
+    <button id="btn-path" onclick="setMode('path')">Camino más corto</button>
+    <button id="btn-cb" onclick="setMode('cb')">Centralidad C<sub>B</sub></button>
+    <button id="btn-reset" onclick="resetSelection()" style="margin-left:auto">Limpiar selección</button>
+  </div>
+
+  <div class="info-panel" id="infoPanel">
+    <p class="info-title" style="color:#888;font-weight:400">Haz clic en un nodo para explorar su rol en la red</p>
+    <p class="hint">En modo <em>Camino más corto</em>: selecciona dos nodos para trazar la ruta óptima de flujo económico.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+var nodes = [
+  {id:0,  label:'Lago Agrio',   x:0.72, y:0.10, type:'ext',    cb:0.81, pop:90000,   econ:'Nodo extractivo primario. Alta centralidad por ser punto de salida del crudo amazónico. El W_top le asigna peso máximo como intermediario en el flujo de renta petrolera.'},
+  {id:1,  label:'Shushufindi',  x:0.88, y:0.28, type:'ext',    cb:0.54, pop:45000,   econ:'Parroquia con actividad petrolera intensa. Recibe flujos de capital pero con escasa redistribución local. Su posición periférica limita su centralidad de intermediación.'},
+  {id:2,  label:'Coca',         x:0.60, y:0.20, type:'ext',    cb:0.76, pop:70000,   econ:'Centro articulador de la extracción amazónica. Su C_B(v) refleja que gran parte del tráfico económico de la región debe pasar por aquí.'},
+  {id:3,  label:'Tena',         x:0.42, y:0.35, type:'bridge', cb:0.91, pop:55000,   econ:'Nodo puente crítico: conecta la Amazonía extractiva con la Sierra. Eliminar este nodo desconectaría dos componentes del grafo. El SDM capta su efecto multiplicador territorial.'},
+  {id:4,  label:'Puyo',         x:0.30, y:0.52, type:'bridge', cb:0.85, pop:62000,   econ:'Segundo gran puente inter-regional. Alto C_B(v) porque articula los flujos entre zonas periféricas no extractivas y los mercados urbanos de la Sierra.'},
+  {id:5,  label:'Macas',        x:0.18, y:0.68, type:'noext',  cb:0.32, pop:30000,   econ:'Parroquia no extractiva con centralidad moderada. Recibe externalidades negativas de la extracción pero no captura renta. El modelo detecta dependencia espacial rezagada.'},
+  {id:6,  label:'Zamora',       x:0.10, y:0.82, type:'ext',    cb:0.48, pop:28000,   econ:'Zona minera emergente. Baja centralidad actual pero el modelo predice aumento de W_top con la expansión minera. Punto de atención para política redistributiva.'},
+  {id:7,  label:'Loja',         x:0.08, y:0.55, type:'noext',  cb:0.29, pop:200000,  econ:'Centro urbano no extractivo. Su alta población no se traduce en alta C_B porque está en posición periférica del grafo extractivo. Ilustra la paradoja centro-periferia.'},
+  {id:8,  label:'Cuenca',       x:0.22, y:0.38, type:'noext',  cb:0.41, pop:330000,  econ:'Metrópoli que actúa como sumidero de flujos económicos regionales. Recibe trabajo migrante desde zonas extractivas pero no opera como intermediario topológico principal.'},
+  {id:9,  label:'Ambato',       x:0.35, y:0.18, type:'bridge', cb:0.88, pop:165000,  econ:'Nodo puente sierra-amazonía de primer orden. Las vías E45 y E30 cruzan aquí. Su C_B(v)=0.88 indica que es intermediario en casi 9 de cada 10 rutas más cortas del grafo.'},
+  {id:10, label:'Quito',        x:0.25, y:0.05, type:'noext',  cb:0.62, pop:2800000, econ:'Capital nacional. Su centralidad no es topológica local sino sistémica: concentra las decisiones de política extractiva que afectan a toda la red. Variable de control en el SDM.'},
+  {id:11, label:'Archidona',    x:0.55, y:0.40, type:'ext',    cb:0.38, pop:18000,   econ:'Parroquia con extracción maderera y minería artesanal. Nodo secundario cuya dependencia espacial con Tena es captada por el término W_top·X en el SDM.'},
+  {id:12, label:'Palora',       x:0.40, y:0.60, type:'noext',  cb:0.22, pop:9000,    econ:'Parroquia rural periférica. Baja centralidad de intermediación: los flujos económicos la rodean sin pasar por ella. Zona de rezago territorial según el índice espacial.'},
+  {id:13, label:'Gualaquiza',   x:0.28, y:0.75, type:'noext',  cb:0.18, pop:12000,   econ:'Nodo hoja del grafo: un solo camino de entrada/salida. C_B(v) mínima. En econometría espacial, su rezago espacial depende casi exclusivamente de Macas y Zamora.'},
+  {id:14, label:'Santiago',     x:0.14, y:0.90, type:'noext',  cb:0.11, pop:7000,    econ:'Parroquia más periférica del grafo. Sin intermediación topológica. Ilustra la exclusión territorial: no captura flujos extractivos ni de desarrollo. Caso límite del modelo SDM.'},
+];
+
+var edges = [
+  {s:10,t:9,  strategic:true},
+  {s:9, t:3,  strategic:true},
+  {s:9, t:8,  strategic:false},
+  {s:3, t:2,  strategic:true},
+  {s:3, t:4,  strategic:false},
+  {s:3, t:11, strategic:false},
+  {s:2, t:0,  strategic:true},
+  {s:2, t:1,  strategic:false},
+  {s:0, t:1,  strategic:false},
+  {s:4, t:5,  strategic:false},
+  {s:4, t:8,  strategic:false},
+  {s:4, t:12, strategic:false},
+  {s:5, t:6,  strategic:false},
+  {s:5, t:13, strategic:false},
+  {s:6, t:7,  strategic:false},
+  {s:6, t:14, strategic:false},
+  {s:7, t:8,  strategic:false},
+  {s:8, t:10, strategic:false},
+  {s:11,t:12, strategic:false},
+  {s:12,t:13, strategic:false},
+  {s:13,t:14, strategic:false},
+];
+
+var COLORS = {
+  ext:    {fill:'#FAEEDA', stroke:'#854F0B', text:'#412402'},
+  noext:  {fill:'#E1F5EE', stroke:'#0F6E56', text:'#04342C'},
+  bridge: {fill:'#EEEDFE', stroke:'#534AB7', text:'#26215C'},
+  sel:    {fill:'#E6F1FB', stroke:'#185FA5', text:'#042C53'},
+  path:   {fill:'#FCEBEB', stroke:'#A32D2D', text:'#501313'},
+};
+
+var canvas, ctx, W, H;
+var mode = 'normal';
+var selected = [];
+var shortPath = [];
+var hoveredNode = null;
+
+function getPos(n) { return { x: n.x * W, y: n.y * H }; }
+function nodeRadius(n) { return mode === 'cb' ? 8 + n.cb * 16 : 10 + (n.type === 'bridge' ? 4 : 0); }
+
+function isInPath(a, b) {
+  for (var i = 0; i < shortPath.length - 1; i++) {
+    if ((shortPath[i]===a && shortPath[i+1]===b)||(shortPath[i]===b && shortPath[i+1]===a)) return true;
+  }
+  return false;
+}
+
+function draw() {
+  if (!ctx) return;
+  ctx.clearRect(0, 0, W, H);
+  edges.forEach(function(e) {
+    var a = getPos(nodes[e.s]), b = getPos(nodes[e.t]);
+    var inPath = shortPath.length > 1 && isInPath(e.s, e.t);
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+    if (inPath) { ctx.strokeStyle='#E24B4A'; ctx.lineWidth=3; }
+    else if (e.strategic) { ctx.strokeStyle='#7F77DD'; ctx.lineWidth=2.5; }
+    else { ctx.strokeStyle='rgba(136,135,128,0.5)'; ctx.lineWidth=1; }
+    ctx.setLineDash([]);
+    ctx.stroke();
+  });
+
+  nodes.forEach(function(n) {
+    var p = getPos(n), r = nodeRadius(n);
+    var isSel = selected.indexOf(n.id) >= 0;
+    var isPath = shortPath.indexOf(n.id) >= 0;
+    var isHov = hoveredNode === n.id;
+    var c = COLORS[n.type];
+    if (isPath && shortPath.length > 1) c = COLORS.path;
+    if (isSel) c = COLORS.sel;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+    ctx.fillStyle = c.fill;
+    ctx.fill();
+    ctx.strokeStyle = c.stroke;
+    ctx.lineWidth = (isSel || isPath) ? 2.5 : (n.type === 'bridge' ? 2 : 1);
+    ctx.stroke();
+
+    if (isHov) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r + 4, 0, Math.PI * 2);
+      ctx.strokeStyle = c.stroke;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.4;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
+    if (mode === 'cb') {
+      ctx.fillStyle = c.text;
+      ctx.font = '500 11px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(n.cb.toFixed(2), p.x, p.y);
+    }
+
+    ctx.fillStyle = c.text;
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.fillText(n.label, p.x, p.y + r + 4);
+  });
+}
+
+function bfs(start, end) {
+  var visited = new Array(nodes.length).fill(false);
+  var prev = new Array(nodes.length).fill(-1);
+  var queue = [start];
+  visited[start] = true;
+  var adj = nodes.map(function() { return []; });
+  edges.forEach(function(e) { adj[e.s].push(e.t); adj[e.t].push(e.s); });
+  while (queue.length) {
+    var cur = queue.shift();
+    if (cur === end) break;
+    adj[cur].forEach(function(nb) { if (!visited[nb]) { visited[nb]=true; prev[nb]=cur; queue.push(nb); } });
+  }
+  var path = [], c = end;
+  while (c !== -1) { path.unshift(c); c = prev[c]; }
+  return path[0] === start ? path : [];
+}
+
+function typeLabel(t) {
+  return t==='ext' ? 'Zona extractiva' : t==='noext' ? 'Zona no extractiva' : 'Nodo puente';
+}
+function badgeClass(t) {
+  return t==='ext' ? 'badge-ext' : t==='noext' ? 'badge-noext' : 'badge-bridge';
+}
+function adjCount(id) {
+  return edges.filter(function(e){ return e.s===id||e.t===id; }).length;
+}
+
+function showInfo(n) {
+  document.getElementById('infoPanel').innerHTML =
+    '<p class="info-title">'+n.label+'</p>'+
+    '<span class="info-badge '+badgeClass(n.type)+'">'+typeLabel(n.type)+'</span>'+
+    '<div class="info-row">'+
+      '<div class="info-metric">C<sub>B</sub>(v) <span>'+n.cb.toFixed(2)+'</span></div>'+
+      '<div class="info-metric">Grado <span>'+adjCount(n.id)+'</span></div>'+
+      '<div class="info-metric">Población aprox. <span>'+n.pop.toLocaleString()+'</span></div>'+
+    '</div>'+
+    '<div class="info-econ">'+n.econ+'</div>';
+}
+
+function showPathInfo(a, b, path) {
+  if (path.length === 0) {
+    document.getElementById('infoPanel').innerHTML =
+      '<p class="info-title" style="color:#a32d2d">Sin camino entre '+a.label+' y '+b.label+'</p>';
+    return;
+  }
+  var route = path.map(function(id){ return nodes[id].label; }).join(' → ');
+  var intermedios = path.slice(1,-1).map(function(id){ return nodes[id]; });
+  var bn = intermedios.length ? intermedios.sort(function(a,b){ return b.cb-a.cb; })[0] : null;
+  document.getElementById('infoPanel').innerHTML =
+    '<p class="info-title">Camino más corto: '+a.label+' → '+b.label+'</p>'+
+    '<div class="info-row">'+
+      '<div class="info-metric">Saltos <span>'+(path.length-1)+'</span></div>'+
+      '<div class="info-metric">Intermediarios <span>'+(path.length-2)+'</span></div>'+
+      (bn ? '<div class="info-metric">Cuello de botella <span>'+bn.label+' (C<sub>B</sub>='+bn.cb.toFixed(2)+')</span></div>' : '')+
+    '</div>'+
+    '<div class="info-econ"><strong>Ruta:</strong> '+route+'<br><br>'+
+    (bn ? 'El nodo <strong>'+bn.label+'</strong> actúa como intermediario crítico: si se elimina, este flujo económico queda interrumpido. Esto es exactamente lo que C<sub>B</sub>(v) mide en la matriz W<sub>top</sub>.' : 'Ruta directa sin intermediarios críticos.')+
+    '</div>';
+}
+
+function onCanvasClick(e) {
+  var rect = canvas.getBoundingClientRect();
+  var scaleX = W / rect.width, scaleY = H / rect.height;
+  var mx = (e.clientX - rect.left) * scaleX;
+  var my = (e.clientY - rect.top) * scaleY;
+  var hit = null;
+  nodes.forEach(function(n) {
+    var p = getPos(n);
+    if (Math.sqrt(Math.pow(mx-p.x,2)+Math.pow(my-p.y,2)) < nodeRadius(n)+6) hit = n;
+  });
+  if (!hit) return;
+  if (mode === 'path') {
+    if (selected.length === 0) { selected=[hit.id]; shortPath=[]; showInfo(hit); }
+    else if (selected.length===1 && selected[0]!==hit.id) {
+      selected.push(hit.id);
+      shortPath = bfs(selected[0], selected[1]);
+      showPathInfo(nodes[selected[0]], hit, shortPath);
+    } else { selected=[hit.id]; shortPath=[]; showInfo(hit); }
+  } else { selected=[hit.id]; showInfo(hit); }
+  draw();
+}
+
+function onCanvasMove(e) {
+  var rect = canvas.getBoundingClientRect();
+  var scaleX = W / rect.width, scaleY = H / rect.height;
+  var mx = (e.clientX - rect.left) * scaleX;
+  var my = (e.clientY - rect.top) * scaleY;
+  var found = null;
+  nodes.forEach(function(n) {
+    var p = getPos(n);
+    if (Math.sqrt(Math.pow(mx-p.x,2)+Math.pow(my-p.y,2)) < nodeRadius(n)+8) found = n.id;
+  });
+  if (found !== hoveredNode) { hoveredNode = found; draw(); }
+  canvas.style.cursor = found !== null ? 'pointer' : 'default';
+}
+
+window.setMode = function(m) {
+  mode = m; selected = []; shortPath = [];
+  ['normal','path','cb'].forEach(function(id) {
+    var btn = document.getElementById('btn-'+id);
+    if (btn) btn.classList.toggle('active', id===m);
+  });
+  var panel = document.getElementById('infoPanel');
+  if (m==='path') {
+    panel.innerHTML = '<p class="info-title" style="color:#888;font-weight:400">Selecciona el nodo de origen</p><p class="hint">Luego selecciona el nodo de destino para trazar el camino más corto y ver qué intermediarios capturan el flujo.</p>';
+  } else if (m==='cb') {
+    panel.innerHTML = '<p class="info-title" style="color:#888;font-weight:400">Visualizando C<sub>B</sub>(v) — el tamaño del nodo es proporcional a su centralidad de intermediación</p><p class="hint">Haz clic en cualquier nodo para ver su interpretación económica.</p>';
+  } else {
+    panel.innerHTML = '<p class="info-title" style="color:#888;font-weight:400">Haz clic en un nodo para explorar su rol en la red</p><p class="hint">En modo <em>Camino más corto</em>: selecciona dos nodos para trazar la ruta óptima de flujo económico.</p>';
+  }
+  draw();
+};
+
+window.resetSelection = function() { selected=[]; shortPath=[]; setMode(mode); };
+
+function init() {
+  canvas = document.getElementById('netCanvas');
+  W = canvas.offsetWidth || 640;
+  H = 420;
+  canvas.width = W;
+  canvas.height = H;
+  ctx = canvas.getContext('2d');
+  canvas.addEventListener('click', onCanvasClick);
+  canvas.addEventListener('mousemove', onCanvasMove);
+  draw();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else { setTimeout(init, 50); }
+})();
+</script>
 </section>
 <section id="modelo-durbin-espacial-sdm" class="level2">
 <h2 class="anchored" data-anchor-id="modelo-durbin-espacial-sdm">Modelo Durbin Espacial (SDM)</h2>

@@ -60,14 +60,14 @@
     "href": "modelo.html",
     "title": "Estrategia Empírica",
     "section": "",
-    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]"
+    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]\n\n\n\n  \n    Zona extractiva\n    Zona no extractiva\n    Nodo puente (alto CB)\n    \n       Vía ordinaria  \n       Vía estratégica\n    \n  \n\n  \n\n  \n    Vista normal\n    Camino más corto\n    Centralidad CB\n    Limpiar selección\n  \n\n  \n    Haz clic en un nodo para explorar su rol en la red\n    En modo Camino más corto: selecciona dos nodos para trazar la ruta óptima de flujo económico."
   },
   {
     "objectID": "modelo.html#matriz-de-pesos-topológicos-w_top",
     "href": "modelo.html#matriz-de-pesos-topológicos-w_top",
     "title": "Estrategia Empírica",
     "section": "",
-    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]"
+    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]\n\n\n\n  \n    Zona extractiva\n    Zona no extractiva\n    Nodo puente (alto CB)\n    \n       Vía ordinaria  \n       Vía estratégica\n    \n  \n\n  \n\n  \n    Vista normal\n    Camino más corto\n    Centralidad CB\n    Limpiar selección\n  \n\n  \n    Haz clic en un nodo para explorar su rol en la red\n    En modo Camino más corto: selecciona dos nodos para trazar la ruta óptima de flujo económico."
   },
   {
     "objectID": "modelo.html#modelo-durbin-espacial-sdm",
