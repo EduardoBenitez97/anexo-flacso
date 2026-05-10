@@ -5,7 +5,7 @@ project:
 website:
   title: "Anexo: Economía Espacial y Extractivismo"
   navbar:
-    rigth:
+    right:
       - href: index.qmd
         text: "Descripción del Problema"
       - href: teoria.qmd

@@ -1,3 +1,5 @@
+
+````{=html}
 <style>
   .tree-wrap { padding: 1rem 0 2rem; font-size: 14px; }
   .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 1.5rem; align-items: center; }
@@ -208,3 +210,4 @@
   });
 })();
 </script>
+````
