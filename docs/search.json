@@ -30,8 +30,43 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "El Problema Espacial: Redes vs. Distancia",
+    "title": "La Geometría del Impacto: Redes vs. Distancia",
     "section": "",
-    "text": "En la Amazonía ecuatoriana, las externalidades del extractivismo no fluyen de forma homogénea. Los modelos convencionales asumen distancias euclidianas, ignorando que el espacio selvático no es isotrópico.\nProponemos que el impacto se transmite a través de la centralidad topológica en la red vial."
+    "text": "Durante la última década, la economía ecuatoriana ha profundizado su dependencia de la frontera petrolera amazónica. Sin embargo, la actividad petrolera no es solo un “enclave” de producción; es un metabolismo social (Falconí y Funtowicz, 2025).\nEste concepto implica que la extracción importa energía y capital, pero “exporta” desorden y pasivos socioambientales a los territorios locales. El gran reto es: ¿Cómo medimos dónde caen realmente esos daños?"
+  },
+  {
+    "objectID": "index.html#el-extractivismo-como-metabolismo",
+    "href": "index.html#el-extractivismo-como-metabolismo",
+    "title": "La Geometría del Impacto: Redes vs. Distancia",
+    "section": "",
+    "text": "Durante la última década, la economía ecuatoriana ha profundizado su dependencia de la frontera petrolera amazónica. Sin embargo, la actividad petrolera no es solo un “enclave” de producción; es un metabolismo social (Falconí y Funtowicz, 2025).\nEste concepto implica que la extracción importa energía y capital, pero “exporta” desorden y pasivos socioambientales a los territorios locales. El gran reto es: ¿Cómo medimos dónde caen realmente esos daños?"
+  },
+  {
+    "objectID": "index.html#el-sesgo-de-la-línea-recta",
+    "href": "index.html#el-sesgo-de-la-línea-recta",
+    "title": "La Geometría del Impacto: Redes vs. Distancia",
+    "section": "2. El Sesgo de la “Línea Recta”",
+    "text": "2. El Sesgo de la “Línea Recta”\nLa modelización convencional de externalidades ambientales en enclaves extractivos ha operado históricamente bajo un supuesto de isotropía espacial no verificado. En este enfoque, se asume que la dispersión de los impactos —como la deforestación o la degradación de servicios públicos— ocurre de manera uniforme en todas las direcciones, utilizando para ello buffers de distancia euclidiana o “línea recta” (Arbia et al. 2016).\nEsta simplificación técnica asume que el espacio socioeconómico es un plano homogéneo, ignorando que la propagación de externalidades es intrínsecamente anisotrópica: fluye de forma asimétrica condicionada por la fricción del terreno y la conectividad física (Deng 2010; Sander et al. 2010).\n\nMás allá de las fronteras administrativas\nParalelamente, las evaluaciones tradicionales suelen incurrir en el Problema de la Unidad Espacial Modificable (MAUP), al circunscribir arbitrariamente los impactos a fronteras político-administrativas (Cabrera 2026). Como señalan Fotheringham y Wong (1991), el uso de estas fronteras genera resultados estadísticos inconsistentes que no capturan la realidad funcional del territorio.\nEn la Amazonía ecuatoriana, los daños biofísicos y las transformaciones socioeconómicas no se detienen en los límites parroquiales ni se expanden en círculos concéntricos; estos vectores de cambio se desplazan y magnifican a través de la red de infraestructura logística (Portocarrero et al. 2025).\n\n\n\n\n\n\nImportantImplicación Metodológica\n\n\n\nLa proximidad geográfica simple resulta insuficiente para explicar la vulnerabilidad territorial. Es la centralidad topológica dentro de la red de transporte y ductos la que determina la magnitud real de los derrames espaciales (spillovers), transformando nodos distantes al punto de extracción en “territorios híbridos” que absorben la presión demográfica y ecológica del extractivismo (Álvarez, Cabrera y Jácome 2021; Portocarrero et al. 2025).\n\n\n\n\n\n\n\n\nNoteEl ejemplo de la asimetría\n\n\n\nDos comunidades pueden estar a la misma distancia de un pozo, pero si solo una de ellas está conectada por una carretera petrolera, esa comunidad absorberá todo el flujo migratorio y la degradación ambiental, mientras la otra permanecerá aislada."
+  },
+  {
+    "objectID": "index.html#de-la-geografía-a-la-topología",
+    "href": "index.html#de-la-geografía-a-la-topología",
+    "title": "La Geometría del Impacto: Redes vs. Distancia",
+    "section": "3. De la Geografía a la Topología",
+    "text": "3. De la Geografía a la Topología\nEste proyecto propone que en lugar de usar la distancia lineal, utilizamos la Centralidad Topológica.\nPostulamos que las externalidades siguen vectores reticulares: los centros poblados que actúan como “nodos logísticos” en la red vial sufren impactos mucho más graves, sin importar si el pozo está a 5 o a 50 kilómetros de distancia. Esta conectividad forzada crea “territorios híbridos” (Portocarrero et al., 2025) donde el colapso de servicios básicos (NBI) es la norma."
+  },
+  {
+    "objectID": "index.html#pregunta-central",
+    "href": "index.html#pregunta-central",
+    "title": "La Geometría del Impacto: Redes vs. Distancia",
+    "section": "4. Pregunta Central",
+    "text": "4. Pregunta Central\n\n¿De qué manera la centralidad topológica de los núcleos poblacionales en la red de infraestructura amazónica determina la magnitud de derrames espaciales asimétricos sobre la deforestación y la desigualdad territorial derivados del extractivismo entre 2010 y 2022?"
+  },
+  {
+    "objectID": "index.html#hipótesis-de-trabajo",
+    "href": "index.html#hipótesis-de-trabajo",
+    "title": "La Geometría del Impacto: Redes vs. Distancia",
+    "section": "5. Hipótesis de Trabajo",
+    "text": "5. Hipótesis de Trabajo\nLos pasivos ambientales y sociales se concentran en los nodos de mayor centralidad conectiva. La inyección de rentas en el enclave no mitiga la pobreza local, sino que detona una segregación espacial que empuja la presión demográfica hacia las zonas más integradas de la red logística."
   }
 ]

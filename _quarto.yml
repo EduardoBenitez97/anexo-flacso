@@ -5,13 +5,16 @@ project:
 website:
   title: "Externalidades Espaciales"
   navbar:
-    left:
+    background: primary
+    right: # Alineación a la derecha
       - href: index.qmd
-        text: "Problema"
+        text: "Descripción del Problema"
+      - href: teoria.qmd
+        text: "Marco Teórico"
       - href: modelo.qmd
         text: "Metodología"
-      - href: datos.qmd
-        text: "Datos"
+      - href: politica.qmd
+        text: "Política Pública"
 
 format:
   html:

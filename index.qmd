@@ -1,6 +1,43 @@
 ---
-title: "El Problema Espacial: Redes vs. Distancia"
+title: "La Geometría del Impacto: Redes vs. Distancia"
 ---
-En la Amazonía ecuatoriana, las externalidades del extractivismo no fluyen de forma homogénea. Los modelos convencionales asumen distancias euclidianas, ignorando que el espacio selvático no es isotrópico. 
 
-Proponemos que el impacto se transmite a través de la **centralidad topológica** en la red vial.
+## 1. El Extractivismo como Metabolismo
+Durante la última década, la economía ecuatoriana ha profundizado su dependencia de la frontera petrolera amazónica. Sin embargo, la actividad petrolera no es solo un "enclave" de producción; es un **metabolismo social** (Falconí y Funtowicz, 2025). 
+
+Este concepto implica que la extracción importa energía y capital, pero "exporta" desorden y pasivos socioambientales a los territorios locales. El gran reto es: **¿Cómo medimos dónde caen realmente esos daños?**
+
+## 2. El Sesgo de la "Línea Recta"
+
+La modelización convencional de externalidades ambientales en enclaves extractivos ha operado históricamente bajo un **supuesto de isotropía espacial** no verificado. En este enfoque, se asume que la dispersión de los impactos —como la deforestación o la degradación de servicios públicos— ocurre de manera uniforme en todas las direcciones, utilizando para ello *buffers* de distancia euclidiana o "línea recta" (Arbia et al. 2016). 
+
+Esta simplificación técnica asume que el espacio socioeconómico es un plano homogéneo, ignorando que la propagación de externalidades es intrínsecamente **anisotrópica**: fluye de forma asimétrica condicionada por la fricción del terreno y la conectividad física (Deng 2010; Sander et al. 2010).
+
+### Más allá de las fronteras administrativas
+
+Paralelamente, las evaluaciones tradicionales suelen incurrir en el **Problema de la Unidad Espacial Modificable (MAUP)**, al circunscribir arbitrariamente los impactos a fronteras político-administrativas (Cabrera 2026). Como señalan Fotheringham y Wong (1991), el uso de estas fronteras genera resultados estadísticos inconsistentes que no capturan la realidad funcional del territorio. 
+
+En la Amazonía ecuatoriana, los daños biofísicos y las transformaciones socioeconómicas no se detienen en los límites parroquiales ni se expanden en círculos concéntricos; estos vectores de cambio se desplazan y magnifican a través de la **red de infraestructura logística** (Portocarrero et al. 2025).
+
+::: {.callout-important title="Implicación Metodológica"}
+La proximidad geográfica simple resulta insuficiente para explicar la vulnerabilidad territorial. Es la **centralidad topológica** dentro de la red de transporte y ductos la que determina la magnitud real de los derrames espaciales (*spillovers*), transformando nodos distantes al punto de extracción en "territorios híbridos" que absorben la presión demográfica y ecológica del extractivismo (Álvarez, Cabrera y Jácome 2021; Portocarrero et al. 2025).
+:::
+
+::: {.callout-note}
+### El ejemplo de la asimetría
+Dos comunidades pueden estar a la misma distancia de un pozo, pero si solo una de ellas está conectada por una carretera petrolera, esa comunidad absorberá todo el flujo migratorio y la degradación ambiental, mientras la otra permanecerá aislada.
+:::
+
+
+
+## 3. De la Geografía a la Topología
+Este proyecto propone que en lugar de usar la distancia lineal, utilizamos la **Centralidad Topológica**. 
+
+Postulamos que las externalidades siguen **vectores reticulares**: los centros poblados que actúan como "nodos logísticos" en la red vial sufren impactos mucho más graves, sin importar si el pozo está a 5 o a 50 kilómetros de distancia. Esta conectividad forzada crea "territorios híbridos" (Portocarrero et al., 2025) donde el colapso de servicios básicos (NBI) es la norma.
+
+## 4. Pregunta Central
+
+> **¿De qué manera la centralidad topológica de los núcleos poblacionales en la red de infraestructura amazónica determina la magnitud de derrames espaciales asimétricos sobre la deforestación y la desigualdad territorial derivados del extractivismo entre 2010 y 2022?**
+
+## 5. Hipótesis de Trabajo
+Los pasivos ambientales y sociales se concentran en los **nodos de mayor centralidad conectiva**. La inyección de rentas en el enclave no mitiga la pobreza local, sino que detona una segregación espacial que empuja la presión demográfica hacia las zonas más integradas de la red logística.
