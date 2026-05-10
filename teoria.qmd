@@ -4,7 +4,7 @@ title: "Marco Teórico: Atlas de la Investigación"
 
 ## 1. El Árbol del Conocimiento: Genealogía Intelectual
 
-Esta investigación se fundamenta en la convergencia de cuatro campos del saber. El siguiente diagrama mapea cómo los pilares de la economía ecológica y la teoría de redes internacionales sustentan las líneas de investigación del Departamento de Economía de FLACSO.
+Esta investigación se fundamenta en la convergencia de cuatro campos teoricos. El siguiente diagrama mapea cómo los pilares de la economía ecológica y la teoría de redes internacionales sustentan las líneas de investigación del Departamento de Economía de FLACSO.
 
 ```{mermaid}
 graph TD

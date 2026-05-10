@@ -1,22 +1,17 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: docs  # Crítico para GitHub Pages
 
 website:
-  title: "Externalidades Espaciales"
+  title: "Anexo: Economía Espacial y Extractivismo"
   navbar:
-    background: primary
-    right: # Alineación a la derecha
+    left:
       - href: index.qmd
         text: "Descripción del Problema"
+    right:
       - href: teoria.qmd
         text: "Marco Teórico"
       - href: modelo.qmd
         text: "Metodología"
-      - href: politica.qmd
-        text: "Política Pública"
-
-format:
-  html:
-    theme: cosmo
-    math: true
+      - href: datos.qmd
+        text: "Datos"
