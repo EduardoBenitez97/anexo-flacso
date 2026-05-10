@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Marco Teórico: Atlas de la Investigación – Anexo: Economía Espacial y Extractivismo</title>
+<title>teoria – Anexo: Economía Espacial y Extractivismo</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -85,34 +85,9 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Anexo: Economía Espacial y Extractivismo</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Descripción del Problema</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./teoria.html" aria-current="page"> 
-<span class="menu-text">Marco Teórico</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./modelo.html"> 
-<span class="menu-text">Metodología</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./datos.html"> 
-<span class="menu-text">Datos</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -122,67 +97,222 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Marco Teórico: Atlas de la Investigación</h1>
+
+
+
+<style>
+  .tree-wrap { padding: 1rem 0 2rem; font-size: 14px; }
+  .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 1.5rem; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .branch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+
+  .root-node {
+    text-align: center;
+    background: #fff;
+    border: 1.5px solid #aaa;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #222;
+    letter-spacing: 0.01em;
+  }
+
+  .branch-col { display: flex; flex-direction: column; }
+
+  .branch-header {
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    border: 0.5px solid transparent;
+    transition: opacity 0.15s;
+    margin-bottom: 6px;
+  }
+  .branch-header:hover { opacity: 0.82; }
+  .chevron { font-size: 10px; transition: transform 0.2s; flex-shrink: 0; }
+  .branch-header.open .chevron { transform: rotate(180deg); }
+
+  .author-list {
+    display: flex; flex-direction: column; gap: 6px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 0;
+  }
+  .author-list.open { max-height: 600px; }
+
+  .author-card {
+    border-radius: 8px;
+    border: 0.5px solid #ddd;
+    padding: 8px 12px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .author-card:hover { border-color: #bbb; background: #fff; }
+  .author-name { font-weight: 600; font-size: 13px; color: #222; margin: 0 0 2px; }
+  .author-desc { font-size: 11px; color: #666; margin: 0; line-height: 1.4; }
+  .author-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 99px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .b-ee   { background: #E1F5EE; border-color: #0F6E56 !important; color: #085041; }
+  .b-ge   { background: #EEEDFE; border-color: #534AB7 !important; color: #3C3489; }
+  .b-dt   { background: #FAEEDA; border-color: #854F0B !important; color: #633806; }
+  .b-inst { background: #FAECE7; border-color: #993C1D !important; color: #712B13; }
+
+  .dot-ee   { background: #1D9E75; }
+  .dot-ge   { background: #7F77DD; }
+  .dot-dt   { background: #BA7517; }
+  .dot-inst { background: #D85A30; }
+
+  .badge-intl   { background: #E6F1FB; color: #0C447C; }
+  .badge-flacso { background: #EAF3DE; color: #27500A; }
+
+  .prop-node {
+    margin-top: 16px;
+    border-radius: 12px;
+    border: 1.5px dashed #aaa;
+    padding: 12px 16px;
+    background: #f5f5f5;
+    text-align: center;
+  }
+  .prop-title { font-weight: 600; font-size: 13px; color: #222; margin: 0 0 4px; }
+  .prop-desc { font-size: 11px; color: #666; margin: 0 0 8px; }
+  .prop-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .prop-link {
+    font-size: 11px; padding: 3px 8px;
+    border-radius: 99px; border: 0.5px solid #ccc;
+    background: #fff; color: #555;
+  }
+</style>
+<div class="tree-wrap">
+<div class="legend">
+<pre><code>&lt;strong style="font-size:12px;color:#555;"&gt;Ramas:&lt;/strong&gt;
+&lt;div class="legend-item"&gt;&lt;div class="legend-dot dot-ee"&gt;&lt;/div&gt;Economía ecológica&lt;/div&gt;
+&lt;div class="legend-item"&gt;&lt;div class="legend-dot dot-ge"&gt;&lt;/div&gt;Geografía económica&lt;/div&gt;
+&lt;div class="legend-item"&gt;&lt;div class="legend-dot dot-dt"&gt;&lt;/div&gt;Desarrollo territorial&lt;/div&gt;
+&lt;div class="legend-item"&gt;&lt;div class="legend-dot dot-inst"&gt;&lt;/div&gt;Instituciones&lt;/div&gt;
+&lt;span style="margin-left:auto;display:flex;gap:6px;align-items:center;"&gt;
+  &lt;span class="author-badge badge-intl"&gt;Internacional&lt;/span&gt;
+  &lt;span class="author-badge badge-flacso"&gt;FLACSO&lt;/span&gt;
+&lt;/span&gt;</code></pre>
 </div>
+<div class="root-node">
+ESPACIO, REDES Y DESARROLLO
+</div>
+<div id="qmd-branches" class="branch-grid">
+
+</div>
+<div class="prop-node">
+<pre><code>&lt;div class="prop-title"&gt;Mi propuesta: centralidad topológica&lt;/div&gt;
+&lt;div class="prop-desc"&gt;Convergencia de cuatro líneas de investigación&lt;/div&gt;
+&lt;div class="prop-links"&gt;
+  &lt;span class="prop-link"&gt;Falconí &amp;amp; Vallejo → pasivos socioambientales&lt;/span&gt;
+  &lt;span class="prop-link"&gt;Jackson → redes sociales y económicas&lt;/span&gt;
+  &lt;span class="prop-link"&gt;Portocarrero &amp;amp; Durán → territorios híbridos&lt;/span&gt;
+  &lt;span class="prop-link"&gt;Pérez Oviedo → razonamiento causal&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<script>
+(function() {
+  var data = [
+    {
+      id: 'ee', label: 'Economía ecológica<br>y metabolismo social',
+      cls: 'b-ee',
+      authors: [
+        { name: 'Georgescu-Roegen', desc: 'Entropía y termodinámica', intl: true },
+        { name: 'Martinez-Alier', desc: 'Conflictos de contenido ecológico', intl: true },
+        { name: 'Bunker', desc: 'Extracción en la Amazonía', intl: true },
+        { name: 'Falconí & Vallejo', desc: 'Pasivos socioambientales', intl: false },
+        { name: 'Alvarado González', desc: 'Ciclos de Hubbert', intl: false },
+      ]
+    },
+    {
+      id: 'ge', label: 'Geografía económica<br>y econometría espacial',
+      cls: 'b-ge',
+      authors: [
+        { name: 'Anselin & Arbia', desc: 'Dependencia espacial', intl: true },
+        { name: 'Jackson', desc: 'Social and Economic Networks', intl: true },
+        { name: 'LeSage', desc: 'Modelos Durbin espaciales', intl: true },
+        { name: 'Álvarez & Jácome', desc: 'Inclusión y pobreza espacial', intl: false },
+        { name: 'Cabrera-Barona', desc: 'Índices multicriterio', intl: false },
+      ]
+    },
+    {
+      id: 'dt', label: 'Desarrollo territorial<br>y sociología rural',
+      cls: 'b-dt',
+      authors: [
+        { name: 'Pierre Bourdieu', desc: 'Efectos de lugar', intl: true },
+        { name: 'Amartya Sen', desc: 'Enfoque de capacidades', intl: true },
+        { name: 'Martínez Valle', desc: 'Transformación rural', intl: false },
+        { name: 'Portocarrero & Durán', desc: 'Territorios híbridos', intl: false },
+        { name: 'Siza León', desc: 'Racismo espacial', intl: false },
+      ]
+    },
+    {
+      id: 'inst', label: 'Instituciones, causalidad<br>y acción colectiva',
+      cls: 'b-inst',
+      authors: [
+        { name: 'Elinor Ostrom', desc: 'Gobierno de los comunes', intl: true },
+        { name: 'Acemoglu & Robinson', desc: 'Instituciones y desarrollo', intl: true },
+        { name: 'Pérez Oviedo', desc: 'Razonamiento causal', intl: false },
+        { name: 'Gordillo & Andrango', desc: 'Cohesión y cooperación', intl: false },
+        { name: 'Manosalvas', desc: 'Acción pública', intl: false },
+      ]
+    }
+  ];
+
+  var container = document.getElementById('qmd-branches');
+
+  data.forEach(function(branch) {
+    var col = document.createElement('div');
+    col.className = 'branch-col';
+
+    var header = document.createElement('div');
+    header.className = 'branch-header ' + branch.cls + ' open';
+    header.innerHTML = '<span>' + branch.label + '</span><span class="chevron">▼</span>';
+
+    var list = document.createElement('div');
+    list.className = 'author-list open';
+
+    branch.authors.forEach(function(a) {
+      var card = document.createElement('div');
+      card.className = 'author-card';
+      var badge = a.intl
+        ? '<span class="author-badge badge-intl">Internacional</span>'
+        : '<span class="author-badge badge-flacso">FLACSO</span>';
+      card.innerHTML = badge + '<p class="author-name">' + a.name + '</p><p class="author-desc">' + a.desc + '</p>';
+      list.appendChild(card);
+    });
+
+    header.addEventListener('click', function() {
+      var isOpen = list.classList.contains('open');
+      list.classList.toggle('open', !isOpen);
+      header.classList.toggle('open', !isOpen);
+    });
+
+    col.appendChild(header);
+    col.appendChild(list);
+    container.appendChild(col);
+  });
+})();
+</script>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="el-árbol-del-conocimiento-genealogía-intelectual" class="level2">
-<h2 class="anchored" data-anchor-id="el-árbol-del-conocimiento-genealogía-intelectual">1. El Árbol del Conocimiento: Genealogía Intelectual</h2>
-<p>Esta investigación se fundamenta en la convergencia de cuatro campos teoricos. El siguiente diagrama mapea cómo los pilares de la economía ecológica y la teoría de redes internacionales sustentan las líneas de investigación del Departamento de Economía de FLACSO.</p>
-<p>graph TD %% Nodo Central Root[<b>ESPACIO, REDES Y DESARROLLO</b>] –&gt; EE(<b>Economía Ecológica y<br>Metabolismo Social</b>) Root –&gt; GE(<b>Geografía Económica y<br>Econometría Espacial</b>) Root –&gt; DT(<b>Desarrollo Territorial y<br>Sociología Rural</b>) Root –&gt; INST(<b>Instituciones, Causalidad<br>y Acción Colectiva</b>)</p>
-<pre><code>%% Rama Economía Ecológica
-EE --&gt; EE_1[&lt;i&gt;Georgescu-Roegen:&lt;/i&gt;&lt;br/&gt;Entropía y Termodinámica]
-EE --&gt; EE_2[&lt;i&gt;Martinez-Alier:&lt;/i&gt;&lt;br/&gt;Conflictos de Contenido Ecológico]
-EE --&gt; EE_3[&lt;i&gt;Bunker:&lt;/i&gt;&lt;br/&gt;Extracción en la Amazonía]
-EE --&gt; EE_4[&lt;b&gt;Falconí y Vallejo:&lt;/b&gt;&lt;br/&gt;Pasivos Socioambientales]
-EE --&gt; EE_5[&lt;b&gt;Alvarado González:&lt;/b&gt;&lt;br/&gt;Ciclos de Hubbert]
-
-%% Rama Geografía Económica
-GE --&gt; GE_1[&lt;i&gt;Anselin y Arbia:&lt;/i&gt;&lt;br/&gt;Dependencia Espacial]
-GE --&gt; GE_2[&lt;i&gt;Jackson:&lt;/i&gt;&lt;br/&gt;Social and Economic Networks]
-GE --&gt; GE_3[&lt;i&gt;LeSage:&lt;/i&gt;&lt;br/&gt;Modelos Durbin Espaciales]
-GE --&gt; GE_4[&lt;b&gt;Álvarez y Jácome:&lt;/b&gt;&lt;br/&gt;Inclusión y Pobreza Espacial]
-GE --&gt; GE_5[&lt;b&gt;Cabrera-Barona:&lt;/b&gt;&lt;br/&gt;Índices Multicriterio]
-
-%% Rama Desarrollo Territorial
-DT --&gt; DT_1[&lt;i&gt;Pierre Bourdieu:&lt;/i&gt;&lt;br/&gt;Efectos de Lugar]
-DT --&gt; DT_2[&lt;i&gt;Amartya Sen:&lt;/i&gt;&lt;br/&gt;Enfoque de Capacidades]
-DT --&gt; DT_3[&lt;b&gt;Martínez Valle:&lt;/b&gt;&lt;br/&gt;Transformación Rural]
-DT --&gt; DT_4[&lt;b&gt;Portocarrero y Durán:&lt;/b&gt;&lt;br/&gt;Territorios Híbridos]
-DT --&gt; DT_5[&lt;b&gt;Siza León:&lt;/b&gt;&lt;br/&gt;Racismo Espacial]
-
-%% Rama Instituciones
-INST --&gt; INST_1[&lt;i&gt;Elinor Ostrom:&lt;/i&gt;&lt;br/&gt;Gobierno de los Comunes]
-INST --&gt; INST_2[&lt;i&gt;Acemoglu y Robinson:&lt;/i&gt;&lt;br/&gt;Instituciones y Desarrollo]
-INST --&gt; INST_3[&lt;b&gt;Pérez Oviedo:&lt;/b&gt;&lt;br/&gt;Razonamiento Causal]
-INST --&gt; INST_4[&lt;b&gt;Gordillo y Andrango:&lt;/b&gt;&lt;br/&gt;Cohesión y Cooperación]
-INST --&gt; INST_5[&lt;b&gt;Manosalvas:&lt;/b&gt;&lt;br/&gt;Acción Pública]
-
-%% Vinculación Final
-EE_4 --- P(&lt;b&gt;MI PROPUESTA:&lt;br/&gt;Centralidad Topológica&lt;/b&gt;)
-GE_2 --- P
-DT_4 --- P
-INST_3 --- P</code></pre>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
