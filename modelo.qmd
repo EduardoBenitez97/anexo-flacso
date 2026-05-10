@@ -1,0 +1,9 @@
+---
+title: "Estrategia Empírica"
+---
+## Matriz de Pesos Topológicos ($W_{top}$)
+Construimos un grafo $G = (V, E)$ donde las parroquias son nodos y las vías son aristas. El peso espacial $w_{ij}$ se define por la centralidad de intermediación:
+$$C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}$$
+
+## Modelo Durbin Espacial (SDM)
+$$Y_{it} = \rho W_{top} Y_{it} + X_{it}\beta + W_{top} X_{it}\theta + \alpha_i + \mu_t + \epsilon_{it}$$

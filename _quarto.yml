@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Externalidades Espaciales"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Problema"
+      - href: modelo.qmd
+        text: "Metodología"
+      - href: datos.qmd
+        text: "Datos"
+
+format:
+  html:
+    theme: cosmo
+    math: true

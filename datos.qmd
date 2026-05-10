@@ -1,0 +1,6 @@
+---
+title: "Fuentes de Datos"
+---
+1. **Deforestación:** MapBiomas Amazonía (2010-2022).
+2. **NBI:** Censos INEC 2010 y 2022.
+3. **Red Vial:** Cartografía del MTOP.

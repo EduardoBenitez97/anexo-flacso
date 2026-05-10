@@ -1,0 +1,6 @@
+---
+title: "El Problema Espacial: Redes vs. Distancia"
+---
+En la Amazonía ecuatoriana, las externalidades del extractivismo no fluyen de forma homogénea. Los modelos convencionales asumen distancias euclidianas, ignorando que el espacio selvático no es isotrópico. 
+
+Proponemos que el impacto se transmite a través de la **centralidad topológica** en la red vial.
