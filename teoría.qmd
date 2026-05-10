@@ -1,0 +1,49 @@
+---
+title: "Marco Teórico: Atlas de la Investigación"
+---
+
+## 1. El Árbol del Conocimiento: Genealogía Intelectual
+
+Esta investigación se fundamenta en la convergencia de cuatro campos del saber. El siguiente diagrama mapea cómo los pilares de la economía ecológica y la teoría de redes internacionales sustentan las líneas de investigación del Departamento de Economía de FLACSO.
+
+```{mermaid}
+graph TD
+    %% Nodo Central
+    Root[<b>ESPACIO, REDES Y DESARROLLO</b>] --> EE(<b>Economía Ecológica y<br/>Metabolismo Social</b>)
+    Root --> GE(<b>Geografía Económica y<br/>Econometría Espacial</b>)
+    Root --> DT(<b>Desarrollo Territorial y<br/>Sociología Rural</b>)
+    Root --> INST(<b>Instituciones, Causalidad<br/>y Acción Colectiva</b>)
+
+    %% Rama Economía Ecológica
+    EE --> EE_1[<i>Georgescu-Roegen:</i><br/>Entropía y Termodinámica]
+    EE --> EE_2[<i>Martinez-Alier:</i><br/>Conflictos de Contenido Ecológico]
+    EE --> EE_3[<i>Bunker:</i><br/>Extracción en la Amazonía]
+    EE --> EE_4[<b>Falconí y Vallejo:</b><br/>Pasivos Socioambientales]
+    EE --> EE_5[<b>Alvarado González:</b><br/>Ciclos de Hubbert]
+
+    %% Rama Geografía Económica
+    GE --> GE_1[<i>Anselin y Arbia:</i><br/>Dependencia Espacial]
+    GE --> GE_2[<i>Jackson:</i><br/>Social and Economic Networks]
+    GE --> GE_3[<i>LeSage:</i><br/>Modelos Durbin Espaciales]
+    GE --> GE_4[<b>Álvarez y Jácome:</b><br/>Inclusión y Pobreza Espacial]
+    GE --> GE_5[<b>Cabrera-Barona:</b><br/>Índices Multicriterio]
+
+    %% Rama Desarrollo Territorial
+    DT --> DT_1[<i>Pierre Bourdieu:</i><br/>Efectos de Lugar]
+    DT --> DT_2[<i>Amartya Sen:</i><br/>Enfoque de Capacidades]
+    DT --> DT_3[<b>Martínez Valle:</b><br/>Transformación Rural]
+    DT --> DT_4[<b>Portocarrero y Durán:</b><br/>Territorios Híbridos]
+    DT --> DT_5[<b>Siza León:</b><br/>Racismo Espacial]
+
+    %% Rama Instituciones
+    INST --> INST_1[<i>Elinor Ostrom:</i><br/>Gobierno de los Comunes]
+    INST --> INST_2[<i>Acemoglu y Robinson:</i><br/>Instituciones y Desarrollo]
+    INST --> INST_3[<b>Pérez Oviedo:</b><br/>Razonamiento Causal]
+    INST --> INST_4[<b>Gordillo y Andrango:</b><br/>Cohesión y Cooperación]
+    INST --> INST_5[<b>Manosalvas:</b><br/>Acción Pública]
+
+    %% Vinculación Final
+    EE_4 --- P(<b>MI PROPUESTA:<br/>Centralidad Topológica</b>)
+    GE_2 --- P
+    DT_4 --- P
+    INST_3 --- P

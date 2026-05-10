@@ -28,8 +28,6 @@ La proximidad geográfica simple resulta insuficiente para explicar la vulnerabi
 Dos comunidades pueden estar a la misma distancia de un pozo, pero si solo una de ellas está conectada por una carretera petrolera, esa comunidad absorberá todo el flujo migratorio y la degradación ambiental, mientras la otra permanecerá aislada.
 :::
 
-
-
 ## 3. De la Geografía a la Topología
 Este proyecto propone que en lugar de usar la distancia lineal, utilizamos la **Centralidad Topológica**. 
 

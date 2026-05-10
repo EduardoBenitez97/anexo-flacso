@@ -1,31 +1,17 @@
 [
   {
-    "objectID": "modelo.html",
-    "href": "modelo.html",
-    "title": "Estrategia Empírica",
+    "objectID": "teoría.html",
+    "href": "teoría.html",
+    "title": "Marco Teórico: Atlas de la Investigación",
     "section": "",
-    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]"
+    "text": "Esta investigación se fundamenta en la convergencia de cuatro campos del saber. El siguiente diagrama mapea cómo los pilares de la economía ecológica y la teoría de redes internacionales sustentan las líneas de investigación del Departamento de Economía de FLACSO.\ngraph TD %% Nodo Central Root[ESPACIO, REDES Y DESARROLLO] –&gt; EE(Economía Ecológica yMetabolismo Social) Root –&gt; GE(Geografía Económica yEconometría Espacial) Root –&gt; DT(Desarrollo Territorial ySociología Rural) Root –&gt; INST(Instituciones, Causalidady Acción Colectiva)\n%% Rama Economía Ecológica\nEE --&gt; EE_1[&lt;i&gt;Georgescu-Roegen:&lt;/i&gt;&lt;br/&gt;Entropía y Termodinámica]\nEE --&gt; EE_2[&lt;i&gt;Martinez-Alier:&lt;/i&gt;&lt;br/&gt;Conflictos de Contenido Ecológico]\nEE --&gt; EE_3[&lt;i&gt;Bunker:&lt;/i&gt;&lt;br/&gt;Extracción en la Amazonía]\nEE --&gt; EE_4[&lt;b&gt;Falconí y Vallejo:&lt;/b&gt;&lt;br/&gt;Pasivos Socioambientales]\nEE --&gt; EE_5[&lt;b&gt;Alvarado González:&lt;/b&gt;&lt;br/&gt;Ciclos de Hubbert]\n\n%% Rama Geografía Económica\nGE --&gt; GE_1[&lt;i&gt;Anselin y Arbia:&lt;/i&gt;&lt;br/&gt;Dependencia Espacial]\nGE --&gt; GE_2[&lt;i&gt;Jackson:&lt;/i&gt;&lt;br/&gt;Social and Economic Networks]\nGE --&gt; GE_3[&lt;i&gt;LeSage:&lt;/i&gt;&lt;br/&gt;Modelos Durbin Espaciales]\nGE --&gt; GE_4[&lt;b&gt;Álvarez y Jácome:&lt;/b&gt;&lt;br/&gt;Inclusión y Pobreza Espacial]\nGE --&gt; GE_5[&lt;b&gt;Cabrera-Barona:&lt;/b&gt;&lt;br/&gt;Índices Multicriterio]\n\n%% Rama Desarrollo Territorial\nDT --&gt; DT_1[&lt;i&gt;Pierre Bourdieu:&lt;/i&gt;&lt;br/&gt;Efectos de Lugar]\nDT --&gt; DT_2[&lt;i&gt;Amartya Sen:&lt;/i&gt;&lt;br/&gt;Enfoque de Capacidades]\nDT --&gt; DT_3[&lt;b&gt;Martínez Valle:&lt;/b&gt;&lt;br/&gt;Transformación Rural]\nDT --&gt; DT_4[&lt;b&gt;Portocarrero y Durán:&lt;/b&gt;&lt;br/&gt;Territorios Híbridos]\nDT --&gt; DT_5[&lt;b&gt;Siza León:&lt;/b&gt;&lt;br/&gt;Racismo Espacial]\n\n%% Rama Instituciones\nINST --&gt; INST_1[&lt;i&gt;Elinor Ostrom:&lt;/i&gt;&lt;br/&gt;Gobierno de los Comunes]\nINST --&gt; INST_2[&lt;i&gt;Acemoglu y Robinson:&lt;/i&gt;&lt;br/&gt;Instituciones y Desarrollo]\nINST --&gt; INST_3[&lt;b&gt;Pérez Oviedo:&lt;/b&gt;&lt;br/&gt;Razonamiento Causal]\nINST --&gt; INST_4[&lt;b&gt;Gordillo y Andrango:&lt;/b&gt;&lt;br/&gt;Cohesión y Cooperación]\nINST --&gt; INST_5[&lt;b&gt;Manosalvas:&lt;/b&gt;&lt;br/&gt;Acción Pública]\n\n%% Vinculación Final\nEE_4 --- P(&lt;b&gt;MI PROPUESTA:&lt;br/&gt;Centralidad Topológica&lt;/b&gt;)\nGE_2 --- P\nDT_4 --- P\nINST_3 --- P"
   },
   {
-    "objectID": "modelo.html#matriz-de-pesos-topológicos-w_top",
-    "href": "modelo.html#matriz-de-pesos-topológicos-w_top",
-    "title": "Estrategia Empírica",
+    "objectID": "teoría.html#el-árbol-del-conocimiento-genealogía-intelectual",
+    "href": "teoría.html#el-árbol-del-conocimiento-genealogía-intelectual",
+    "title": "Marco Teórico: Atlas de la Investigación",
     "section": "",
-    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]"
-  },
-  {
-    "objectID": "modelo.html#modelo-durbin-espacial-sdm",
-    "href": "modelo.html#modelo-durbin-espacial-sdm",
-    "title": "Estrategia Empírica",
-    "section": "Modelo Durbin Espacial (SDM)",
-    "text": "Modelo Durbin Espacial (SDM)\n\\[Y_{it} = \\rho W_{top} Y_{it} + X_{it}\\beta + W_{top} X_{it}\\theta + \\alpha_i + \\mu_t + \\epsilon_{it}\\]"
-  },
-  {
-    "objectID": "datos.html",
-    "href": "datos.html",
-    "title": "Fuentes de Datos",
-    "section": "",
-    "text": "Deforestación: MapBiomas Amazonía (2010-2022).\nNBI: Censos INEC 2010 y 2022.\nRed Vial: Cartografía del MTOP."
+    "text": "Esta investigación se fundamenta en la convergencia de cuatro campos del saber. El siguiente diagrama mapea cómo los pilares de la economía ecológica y la teoría de redes internacionales sustentan las líneas de investigación del Departamento de Economía de FLACSO.\ngraph TD %% Nodo Central Root[ESPACIO, REDES Y DESARROLLO] –&gt; EE(Economía Ecológica yMetabolismo Social) Root –&gt; GE(Geografía Económica yEconometría Espacial) Root –&gt; DT(Desarrollo Territorial ySociología Rural) Root –&gt; INST(Instituciones, Causalidady Acción Colectiva)\n%% Rama Economía Ecológica\nEE --&gt; EE_1[&lt;i&gt;Georgescu-Roegen:&lt;/i&gt;&lt;br/&gt;Entropía y Termodinámica]\nEE --&gt; EE_2[&lt;i&gt;Martinez-Alier:&lt;/i&gt;&lt;br/&gt;Conflictos de Contenido Ecológico]\nEE --&gt; EE_3[&lt;i&gt;Bunker:&lt;/i&gt;&lt;br/&gt;Extracción en la Amazonía]\nEE --&gt; EE_4[&lt;b&gt;Falconí y Vallejo:&lt;/b&gt;&lt;br/&gt;Pasivos Socioambientales]\nEE --&gt; EE_5[&lt;b&gt;Alvarado González:&lt;/b&gt;&lt;br/&gt;Ciclos de Hubbert]\n\n%% Rama Geografía Económica\nGE --&gt; GE_1[&lt;i&gt;Anselin y Arbia:&lt;/i&gt;&lt;br/&gt;Dependencia Espacial]\nGE --&gt; GE_2[&lt;i&gt;Jackson:&lt;/i&gt;&lt;br/&gt;Social and Economic Networks]\nGE --&gt; GE_3[&lt;i&gt;LeSage:&lt;/i&gt;&lt;br/&gt;Modelos Durbin Espaciales]\nGE --&gt; GE_4[&lt;b&gt;Álvarez y Jácome:&lt;/b&gt;&lt;br/&gt;Inclusión y Pobreza Espacial]\nGE --&gt; GE_5[&lt;b&gt;Cabrera-Barona:&lt;/b&gt;&lt;br/&gt;Índices Multicriterio]\n\n%% Rama Desarrollo Territorial\nDT --&gt; DT_1[&lt;i&gt;Pierre Bourdieu:&lt;/i&gt;&lt;br/&gt;Efectos de Lugar]\nDT --&gt; DT_2[&lt;i&gt;Amartya Sen:&lt;/i&gt;&lt;br/&gt;Enfoque de Capacidades]\nDT --&gt; DT_3[&lt;b&gt;Martínez Valle:&lt;/b&gt;&lt;br/&gt;Transformación Rural]\nDT --&gt; DT_4[&lt;b&gt;Portocarrero y Durán:&lt;/b&gt;&lt;br/&gt;Territorios Híbridos]\nDT --&gt; DT_5[&lt;b&gt;Siza León:&lt;/b&gt;&lt;br/&gt;Racismo Espacial]\n\n%% Rama Instituciones\nINST --&gt; INST_1[&lt;i&gt;Elinor Ostrom:&lt;/i&gt;&lt;br/&gt;Gobierno de los Comunes]\nINST --&gt; INST_2[&lt;i&gt;Acemoglu y Robinson:&lt;/i&gt;&lt;br/&gt;Instituciones y Desarrollo]\nINST --&gt; INST_3[&lt;b&gt;Pérez Oviedo:&lt;/b&gt;&lt;br/&gt;Razonamiento Causal]\nINST --&gt; INST_4[&lt;b&gt;Gordillo y Andrango:&lt;/b&gt;&lt;br/&gt;Cohesión y Cooperación]\nINST --&gt; INST_5[&lt;b&gt;Manosalvas:&lt;/b&gt;&lt;br/&gt;Acción Pública]\n\n%% Vinculación Final\nEE_4 --- P(&lt;b&gt;MI PROPUESTA:&lt;br/&gt;Centralidad Topológica&lt;/b&gt;)\nGE_2 --- P\nDT_4 --- P\nINST_3 --- P"
   },
   {
     "objectID": "index.html",
@@ -68,5 +54,33 @@
     "title": "La Geometría del Impacto: Redes vs. Distancia",
     "section": "5. Hipótesis de Trabajo",
     "text": "5. Hipótesis de Trabajo\nLos pasivos ambientales y sociales se concentran en los nodos de mayor centralidad conectiva. La inyección de rentas en el enclave no mitiga la pobreza local, sino que detona una segregación espacial que empuja la presión demográfica hacia las zonas más integradas de la red logística."
+  },
+  {
+    "objectID": "datos.html",
+    "href": "datos.html",
+    "title": "Fuentes de Datos",
+    "section": "",
+    "text": "Deforestación: MapBiomas Amazonía (2010-2022).\nNBI: Censos INEC 2010 y 2022.\nRed Vial: Cartografía del MTOP."
+  },
+  {
+    "objectID": "modelo.html",
+    "href": "modelo.html",
+    "title": "Estrategia Empírica",
+    "section": "",
+    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]"
+  },
+  {
+    "objectID": "modelo.html#matriz-de-pesos-topológicos-w_top",
+    "href": "modelo.html#matriz-de-pesos-topológicos-w_top",
+    "title": "Estrategia Empírica",
+    "section": "",
+    "text": "Construimos un grafo \\(G = (V, E)\\) donde las parroquias son nodos y las vías son aristas. El peso espacial \\(w_{ij}\\) se define por la centralidad de intermediación: \\[C_B(v) = \\sum_{s \\neq v \\neq t} \\frac{\\sigma_{st}(v)}{\\sigma_{st}}\\]"
+  },
+  {
+    "objectID": "modelo.html#modelo-durbin-espacial-sdm",
+    "href": "modelo.html#modelo-durbin-espacial-sdm",
+    "title": "Estrategia Empírica",
+    "section": "Modelo Durbin Espacial (SDM)",
+    "text": "Modelo Durbin Espacial (SDM)\n\\[Y_{it} = \\rho W_{top} Y_{it} + X_{it}\\beta + W_{top} X_{it}\\theta + \\alpha_i + \\mu_t + \\epsilon_{it}\\]"
   }
 ]
